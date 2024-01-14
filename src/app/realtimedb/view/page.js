@@ -19,7 +19,7 @@ export default async function Page(){
                         <div key={key} className="border p-3 rounded-md">
                             <p>Unique Id: {key}</p>
                             <p>Name: {details[key].name}</p>
-                            <Button page="view/12"/>
+                            <Button page={`view/${key}`}/>
                             {/* <p>Email: {details[key].email}</p>
                             <p>Phone: {details[key].phone}</p>
                             <p>Message: {details[key].message}</p> */}
