@@ -6,6 +6,6 @@ export default function Button(props){
         router.push(name)
     }
     return(
-        <button onClick={()=>navigate(props.page)} className="border px-5 py-1 rounded-sm mt-3 hover:bg-white hover:text-black">View Details</button>
+        <button onClick={()=>navigate(props.page)} className="border px-5 py-1 rounded-sm mt-3 hover:bg-white hover:text-black">{props.title}</button>
     )
 }
