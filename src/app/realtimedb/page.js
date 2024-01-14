@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -40,6 +42,7 @@ export default function Page() {
       if(res){
         alert("Data Stores Successfully");
         setUserData({name:"",email:"",phone:"",message:""});
+        router.refresh("realtimedb/view")
       }else{
         alert("Problem in Processing the Form Data");
       }
