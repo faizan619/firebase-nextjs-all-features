@@ -1,4 +1,7 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp,getApps } from "firebase/app";
+
+// for storage folder
+import {getStorage} from "firebase/storage"
 
 const firebaseConfig={
       apiKey:process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,7 +13,13 @@ const firebaseConfig={
       appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 }
 
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
+const apna_app = getApps().length === 0? initializeApp(firebaseConfig):getApps()[0];
+export default apna_app;
+
+// for storage folder
+const storage = getStorage(apna_app)
+export {storage}
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyAzKwjcRn06091-QEExKJ_ICfqZtJRq0hU",
