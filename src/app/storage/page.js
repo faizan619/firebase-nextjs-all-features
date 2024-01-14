@@ -3,38 +3,44 @@ import { storage } from "@/firebase/config"
 import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage"
 import { useState } from "react"
 import Button from "../Component/button"
+import Link from "next/link"
 
 export default function Page(){
 
     const [file,setFile] = useState("")
     const [percent,setPercent] = useState(0)
+    const [idtt,setId] = useState("")
 
     const handleChange=(e)=>{
-        setFile(e.target.files);
+        setFile(e.target.files[0]);
         console.log("files details: ",file);
     }
     const handleUpload=()=>{
         if(!file){
             alert("Please Choose a Image");
         }
-        console.log(file.name)
-        const storageRef = ref(storage,`/storagefile/${file.name}`)
+        else{
+
+            console.log(file.name)
+            const storageRef = ref(storage,`/storagefile/${file.name}`)
         const uploadTask = uploadBytesResumable(storageRef,file)
         uploadTask.on(
             "state_changed",
             (snapshot)=>{
                 const percent = Math.round(
                     (snapshot.bytesTransferred/snapshot.totalBytes)*100
-                );
-                setPercent(percent);
-            },
-            (err)=>console.log(err),
-            ()=>{
-                getDownloadURL(uploadTask.snapshot.ref).then((url)=>{
-                    console.log(url);
-                });
-            }
-        );
+                    );
+                    setPercent(percent);
+                },
+                (err)=>console.log(err),
+                ()=>{
+                    getDownloadURL(uploadTask.snapshot.ref).then((url)=>{
+                        console.log("image url",url);
+                        setId(url)
+                    });
+                }
+            );
+        }
     }
 
     return(
@@ -47,6 +53,9 @@ export default function Page(){
                 <input type="file" accept="image/*" onChange={handleChange} className="border rounded-md" />
                 <button onClick={handleUpload} className="border px-5 rounded-md hover:shadow-md transition-all hover:shadow-gray-50">Upload to Firebase</button>
                 <p>{percent!=100?`${percent}% done`:"Uploaded"}</p>
+                <div className="bg-black p-2">
+                    <Link target="_blank" href={`${idtt}`}>{idtt}</Link>
+                </div>
             </div>
         </div>
     )
