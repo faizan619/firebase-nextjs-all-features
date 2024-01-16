@@ -50,12 +50,16 @@ export default function Page(){
                 <Button title="Back" page="/" />
             </div>
             <div className="flex flex-col items-center min-h-screen px-2 justify-center gap-5">
+                <Button page="storage/storageview" title="View Photos"/>
                 <input type="file" accept="image/*" onChange={handleChange} className="border rounded-md" />
                 <button onClick={handleUpload} className="border px-5 rounded-md hover:shadow-md transition-all hover:shadow-gray-50">Upload to Firebase</button>
                 <p>{percent!=100?`${percent}% done`:"Uploaded"}</p>
+                {idtt>0?(
                 <div className="bg-black p-2">
                     <Link target="_blank" href={`${idtt}`}>{idtt}</Link>
                 </div>
+                ):null
+                }
             </div>
         </div>
     )
