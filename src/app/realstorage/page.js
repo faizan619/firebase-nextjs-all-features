@@ -80,7 +80,7 @@ export default function Page() {
           <div className="mb-5">
             <h1 className="uppercase text-xl mb-5">Realtime Database PAGE</h1>
             <Link
-              href="realtimedb/view"
+              href="realstorage/view"
               className="rounded-md hover:bg-black hover:text-white border border-black px-5 py-2"
             >
               View Data
