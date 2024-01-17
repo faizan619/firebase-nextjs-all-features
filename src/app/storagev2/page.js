@@ -4,6 +4,7 @@ import { storage } from "@/firebase/config";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useState } from "react"
+import Image from "next/image";
 
 export default function Page(){
 
@@ -38,7 +39,8 @@ export default function Page(){
                 <input type="file" onChange={(e)=>{setImg(e.target.files[0]);console.log(img)}} />
                 <button className="border border-black px-3" onClick={handleSubmit}>Upload</button>
                 {/* <p>{imgLink}</p> */}
-                {imgLink && <p>{imgLink}</p>}
+                
+                {imgLink && <Image src={`${imgLink}`} alt="" width={500} height={500} /> } 
             </div>
         </div>
     )
