@@ -20,7 +20,6 @@ export default function Page(){
             alert("Please Choose a Image");
         }
         else{
-
             console.log(file.name)
             const storageRef = ref(storage,`/storagefile/${file.name}`)
         const uploadTask = uploadBytesResumable(storageRef,file)
@@ -54,7 +53,7 @@ export default function Page(){
                 <input type="file" accept="image/*" onChange={handleChange} className="border rounded-md" />
                 <button onClick={handleUpload} className="border px-5 rounded-md hover:shadow-md transition-all hover:shadow-gray-50">Upload to Firebase</button>
                 <p>{percent!=100?`${percent}% done`:"Uploaded"}</p>
-                {idtt!=null?(
+                {idtt!=null && undefined?(
                 <div className="bg-black p-2">
                     <Link target="_blank" href={`${idtt}`}>{idtt}</Link>
                 </div>
