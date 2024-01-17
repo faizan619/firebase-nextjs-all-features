@@ -14,7 +14,7 @@ export default function Page(){
     const handleChange=(e)=>{
         setFile(e.target.files[0]);
         console.log("files details: ",file);
-    }
+    } 
     const handleUpload=()=>{
         if(!file){
             alert("Please Choose a Image");
@@ -54,7 +54,7 @@ export default function Page(){
                 <input type="file" accept="image/*" onChange={handleChange} className="border rounded-md" />
                 <button onClick={handleUpload} className="border px-5 rounded-md hover:shadow-md transition-all hover:shadow-gray-50">Upload to Firebase</button>
                 <p>{percent!=100?`${percent}% done`:"Uploaded"}</p>
-                {idtt>0?(
+                {idtt!=null?(
                 <div className="bg-black p-2">
                     <Link target="_blank" href={`${idtt}`}>{idtt}</Link>
                 </div>
