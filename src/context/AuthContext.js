@@ -4,7 +4,7 @@ import apna_app from "@/firebase/config"
 import { createContext, useContext, useEffect, useState } from "react"
 const auth = getAuth(apna_app)
 export const AuthContext = createContext({})
-export const useAuthContext = ()=>useContext(AudioContext);
+export const useAuthContext = ()=>useContext(AuthContext);
 
 export const AuthContextProvider = ({
     children,
