@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { storage } from "@/firebase/config";
 import { v4 } from "uuid";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Button from "../Component/button";
 
 export default function Page() {
   const router = useRouter();
@@ -75,16 +76,17 @@ export default function Page() {
 
   return (
     <div>
-      <div className="text-center min-h-screen flex flex-col justify-center items-center text-xl">
+      <div className="text-center min-h-screen flex flex-col justify-center items-center text-xl bg-black text-white">
         <div className="text-center flex flex-col justify-center items-center text-xl">
-          <div className="mb-5">
-            <h1 className="uppercase text-xl mb-5">Realtime Database PAGE</h1>
+          <div className="mb-5 flex justify-between w-screen px-5 items-center">
+            <h1 className="uppercase text-xl">Realtime Database PAGE</h1>
             <Link
               href="realstorage/view"
-              className="rounded-md hover:bg-black hover:text-white border border-black px-5 py-2"
+              className="rounded-md hover:bg-white hover:text-black border border-white px-3 py-1"
             >
               View Data
             </Link>
+            <Button page="/" title="Home" className="self-start"/>
           </div>
           <form className="flex flex-col gap-5 text-left border p-5 rounded-md bg-gray-300 text-black">
             <label>

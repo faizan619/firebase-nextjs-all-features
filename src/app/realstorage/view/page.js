@@ -18,7 +18,7 @@ export default async function Page(){
         const blogdetails = await viewData();
         return(
             <div>
-                <div>
+                <div className="flex justify-evenly items-end mb-5">
                     <h1>View the Blog Data Here</h1>
                     <Button page={`/realstorage`} title="Back" />
                 </div>
