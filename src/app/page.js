@@ -12,6 +12,7 @@ export default function Home() {
         <button className='border px-5 py-3 rounded-md hover:bg-gray-100 hover:text-black transition-all' onClick={()=>router.push("/storage")}>Storage Database</button>
         <button className='border px-5 py-3 rounded-md hover:bg-gray-100 hover:text-black transition-all' onClick={()=>router.push("/storagev2")}>Storage V2 Database</button>
         <button className='border px-5 py-3 rounded-md hover:bg-gray-100 hover:text-black transition-all' onClick={()=>router.push("/authentic")}>Authentication</button>
+        <button className='border px-5 py-3 rounded-md hover:bg-gray-100 hover:text-black transition-all' onClick={()=>router.push("/todoapp")}>Todo App</button>
       </div>
     </div>
   )
