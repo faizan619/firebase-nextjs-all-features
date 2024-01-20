@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 
 async function addTodoToFirebase(title, details, dueDate) {
   try {
-    const docRef = await addDoc(collection(db, "todos"), {
+    const docRef = await addDoc(collection(db, "todos"), { 
       title: title,
       details: details,
       dueDate: dueDate,
