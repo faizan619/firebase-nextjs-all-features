@@ -1,5 +1,7 @@
 import { initializeApp,getApps } from "firebase/app";
 
+import {getFirestore} from "firebase/firestore"
+
 // for storage folder
 import {getStorage} from "firebase/storage"
 const firebaseConfig={
@@ -18,3 +20,7 @@ export default apna_app;
 // for storage folder
 const storage = getStorage(apna_app)
 export {storage}
+
+//for firestore
+const db = getFirestore(apna_app)
+export {db}
